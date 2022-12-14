@@ -12,18 +12,29 @@ export class HomeComponent implements OnInit{
 
   jokeList: Joke[] = [];
   jokeByCategory: Joke[] = [];
+  initial: boolean = false;
   public categoria!: FormGroup;
 
   private buildForm() {
     this.categoria = this.formBuilder.group({
       categoriaJoke: '',
+      idioma: ''
     });
   }
 
   elegirCategoria(){
     var categoria = this.categoria.value['categoriaJoke'];
-    this.jokeApiService.getJokesByCategory(categoria)
+    var idiomaTrueFalse = this.categoria.value['idioma'];
+    var idioma;
+    if(idiomaTrueFalse == true){
+      idioma = 'es';
+    }else{
+      idioma = 'en';
+    }
+    
+    this.jokeApiService.getJokesByCategory(categoria, idioma)
       .subscribe((jokes) => {
+        this.initial = true;
         this.jokeByCategory = jokes.jokes;
     });
 

@@ -16,12 +16,16 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatChipsModule} from '@angular/material/chips';
+import { EnviarJokeComponent } from './pages/enviar-joke/enviar-joke.component';
+import { RouterModule } from '@angular/router';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    EnviarJokeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +33,7 @@ import {MatChipsModule} from '@angular/material/chips';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     MatSidenavModule,
     MatCheckboxModule,
     HttpClientModule,
@@ -39,6 +44,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatTabsModule,
     MatProgressSpinnerModule,
     MatChipsModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

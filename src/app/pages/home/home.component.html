@@ -1,23 +1,28 @@
 <div class="container">
-    <mat-spinner class="m-auto" *ngIf="!jokeList"></mat-spinner>
     <div class="container">
         <h2>Aquí tienes algunos chistes para que te alegren el día</h2>
         <br>
         <p>Puedes elegir entre categorias en las que aparecen los chistes, solo recuerda que de cada categoria puede haber menos o más chistes. Por defecto aparecen de todos los tipos</p>
         <div>
             <form (ngSubmit)="elegirCategoria()" [formGroup]="categoria" class="row">
-                <mat-chip-listbox aria-label="Category selection" formControlName="categoriaJoke" class="col-10">
+                <mat-chip-listbox aria-label="Category selection" formControlName="categoriaJoke" class="col-8">
                     <mat-chip-option value="Any" color="accent" selected>Todos</mat-chip-option>
                     <mat-chip-option value="Programming" color="warn">Programación</mat-chip-option>
                     <mat-chip-option value="Dark">Negros</mat-chip-option>
-                    <mat-chip-option value="Spooky">Miedo</mat-chip-option>
-                    <mat-chip-option value="Christmas">Navidad</mat-chip-option>
+                    <mat-chip-option value="Spooky" color="accent">Miedo</mat-chip-option>
+                    <mat-chip-option value="Christmas" color="warn">Navidad</mat-chip-option>
                 </mat-chip-listbox>
-                <button type="submit" mat-raised-button class="col-2">Filtrar</button>
+                <div class="row col-4">
+                    <mat-slide-toggle class="col" formControlName="idioma">Español</mat-slide-toggle>
+                    <button type="submit" mat-raised-button class="col">Filtrar</button>
+                </div>
             </form>
         </div>
     </div>
     <hr><br>
+    <div class="alert alert-info" role="alert" *ngIf="!jokeByCategory">
+        Lo sentimos, no hay ningun chiste que coincida con la busqueda :(
+      </div>
     <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="jokeByCategory">
         <div class="col" *ngFor="let joke of jokeByCategory">
           <div class="card h-100">
@@ -31,7 +36,7 @@
           </div>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="jokeByCategory">
+    <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="initial == false">
         <div class="col" *ngFor="let joke of jokeList">
           <div class="card h-100">
             <div class="card-body">
