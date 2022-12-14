@@ -19,6 +19,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { EnviarJokeComponent } from './pages/enviar-joke/enviar-joke.component';
 import { RouterModule } from '@angular/router';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatTabsModule,
     MatProgressSpinnerModule,
     MatChipsModule,
+    MatStepperModule,
+    MatInputModule,
     MatSlideToggleModule
   ],
   providers: [],

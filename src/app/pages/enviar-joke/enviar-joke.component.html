@@ -1,2 +1,49 @@
-<br><br><br><br>
-<p>enviar-joke works!</p>
+<div class="container">
+    <mat-card class="card m-auto">
+        <mat-card-content>
+            <h3 class="text-center">Puedes enviarnos tu propia Joke, la revisaremos y una vez aprobada aparecera a todo el mundo :)</h3>
+            <hr>
+            <form (ngSubmit)="enviarJoke()" [formGroup]="joke" class="row">
+                <mat-stepper orientation="vertical" animationDuration=1000>
+                    <mat-step>
+                        <ng-template matStepLabel>1. Dinos de que categoria es tu Joke</ng-template>
+                        <ng-template matStepContent>
+                            <mat-chip-listbox aria-label="Category selection" formControlName="categoria">
+                                <mat-chip-option value="Any" color="accent">Todos</mat-chip-option>
+                                <mat-chip-option value="Programming" selected color="warn">Programación</mat-chip-option>
+                                <mat-chip-option value="Dark">Negro</mat-chip-option>
+                                <mat-chip-option value="Spooky" color="accent">Miedo</mat-chip-option>
+                                <mat-chip-option value="Christmas" color="warn">Navidad</mat-chip-option>
+                            </mat-chip-listbox>
+                        </ng-template> 
+                    </mat-step>
+                    <mat-step>
+                        <ng-template matStepLabel>2. Selecciona el idioma de tu Joke</ng-template>
+                        <ng-template matStepContent>
+                            <mat-chip-listbox aria-label="Language selection" formControlName="idioma">
+                                <mat-chip-option value="es" selected>Español</mat-chip-option>
+                                <mat-chip-option value="en" color="warn">Ingles</mat-chip-option>
+                            </mat-chip-listbox>
+                        </ng-template>
+                    </mat-step>
+                    <mat-step>
+                        <ng-template matStepLabel>3. Hora de la creatividad. Dinos tu Joke</ng-template>
+                        <ng-template matStepContent>
+                            <br>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Joke</mat-label>
+                                <input matInput placeholder="Ejemplo: ¿Cuántos programadores hacen falta para cambiar una bombilla?" formControlName="joke">
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Respuesta/Remate/Complemento</mat-label>
+                                <textarea matInput placeholder="Ejemplo: Ninguno, porque es un problema hardware." formControlName="respuestaJoke"></textarea>
+                            </mat-form-field>
+                        </ng-template>
+                    </mat-step>
+                  </mat-stepper>
+                  <button type="submit" mat-raised-button color="primary">Enviar Joke</button>
+            </form>
+        </mat-card-content>
+    </mat-card>      
+</div>
