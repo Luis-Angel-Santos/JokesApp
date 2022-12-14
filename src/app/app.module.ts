@@ -21,13 +21,15 @@ import { RouterModule } from '@angular/router';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatInputModule} from '@angular/material/input';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     HomeComponent,
-    EnviarJokeComponent
+    EnviarJokeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

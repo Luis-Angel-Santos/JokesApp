@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="container">
+    <div class="container animate__animated animate__fadeIn">
         <h2>Aquí tienes algunos chistes para que te alegren el día</h2>
         <br>
         <p>Puedes elegir entre categorias en las que aparecen los chistes, solo recuerda que de cada categoria puede haber menos o más chistes. Por defecto aparecen de todos los tipos</p>
@@ -20,11 +20,11 @@
         </div>
     </div>
     <hr><br>
-    <div class="alert alert-info" role="alert" *ngIf="!jokeByCategory">
+    <div class="alert alert-info animate__animated animate__slideInLeft" role="alert" *ngIf="!jokeByCategory">
         Lo sentimos, no hay ningun chiste que coincida con la busqueda :(
       </div>
     <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="jokeByCategory">
-        <div class="col" *ngFor="let joke of jokeByCategory">
+        <div class="col animate__animated animate__fadeInDown" *ngFor="let joke of jokeByCategory">
           <div class="card h-100">
             <div class="card-body">
               <h2 class="card-title">{{joke.setup}}</h2>
@@ -36,7 +36,7 @@
           </div>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4" *ngIf="initial == false">
+    <div class="row row-cols-1 row-cols-md-3 g-4 animate__animated animate__fadeInDown" *ngIf="initial == false">
         <div class="col" *ngFor="let joke of jokeList">
           <div class="card h-100">
             <div class="card-body">

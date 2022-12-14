@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit{
     }else{
       idioma = 'en';
     }
-    
     this.jokeApiService.getJokesByCategory(categoria, idioma)
       .subscribe((jokes) => {
         this.initial = true;

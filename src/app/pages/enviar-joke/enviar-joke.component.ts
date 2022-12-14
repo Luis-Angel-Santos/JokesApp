@@ -25,7 +25,7 @@ export class EnviarJokeComponent implements OnInit{
     var idioma = this.joke.value['idioma'];
     var joke = this.joke.value['joke'];
     var respuestaJoke = this.joke.value['respuestaJoke'];
-    console.log(categoria, idioma, joke, respuestaJoke);
+    this.jokeApiService.postJoke(joke, idioma, respuestaJoke, categoria);
     
   }
 
