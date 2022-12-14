@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Joke } from 'src/app/models/jokes.model';
 import { JokeapiService } from 'src/app/services/jokeapi.service';
 
@@ -9,17 +10,35 @@ import { JokeapiService } from 'src/app/services/jokeapi.service';
 })
 export class HomeComponent implements OnInit{
 
-  jokeList: Joke[] = []
+  jokeList: Joke[] = [];
+  jokeByCategory: Joke[] = [];
+  public categoria!: FormGroup;
 
-  constructor(private jokeApiService: JokeapiService) { }
+  private buildForm() {
+    this.categoria = this.formBuilder.group({
+      categoriaJoke: '',
+    });
+  }
+
+  elegirCategoria(){
+    var categoria = this.categoria.value['categoriaJoke'];
+    this.jokeApiService.getJokesByCategory(categoria)
+      .subscribe((jokes) => {
+        this.jokeByCategory = jokes.jokes;
+    });
+
+  }
+
+  constructor(private jokeApiService: JokeapiService,
+              private formBuilder: FormBuilder) { }
   
   ngOnInit(): void {
+    this.buildForm();
     this.jokeApiService.getAllJokes()
       .subscribe((jokes) => {
         this.jokeList = jokes.jokes;
         console.log(this.jokeList);
     });
-    
   }
 
 }

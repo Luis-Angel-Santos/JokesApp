@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './shared/menu/menu.component';
 import { HomeComponent } from './pages/home/home.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -27,6 +27,8 @@ import {MatChipsModule} from '@angular/material/chips';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatCheckboxModule,
     HttpClientModule,
@@ -36,7 +38,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatCardModule,
     MatTabsModule,
     MatProgressSpinnerModule,
-    MatChipsModule
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
